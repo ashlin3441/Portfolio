@@ -8,6 +8,8 @@ const withPWA = require("next-pwa")({
   disable: prod ? false : true,
 });
 
-const nextConfig = {};
+const nextConfig = {
+  turbopack: {},
+};
 
 module.exports = withPWA(nextConfig);
