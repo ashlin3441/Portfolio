@@ -26,33 +26,46 @@ const Skills = () => {
   // Use the custom hook to determine when this section is in view
   const { ref } = useSectionInView("Skills");
 
+  let globalIndex = 0;
+
   return (
     <section
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-8 text-center sm:mb-40 "
+      id="skills"
+      className="max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
-      <SectionHeading >My skills</SectionHeading>
+      <SectionHeading>My skills</SectionHeading>
 
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800 mb-20">
-        {SKILLS_DATA.map((skill, i) => (
-          <motion.li
-            id="skills"
-            key={`skill-${i}`}
-            className="bg-white borderBlack max-sm:text-sm rounded-md md:rounded-xl px-3.5 py-1.5 md:px-5 md:py-3 dark:bg-white/10 dark:text-white/80"
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-            custom={i} // Assign a custom index for animation delay
-          >
-            {skill}
-          </motion.li>
-        ))}
-      </ul>
+      {SKILLS_DATA.map((group) => (
+        <div key={group.category} className="mb-8">
+          <h3 className="text-xl font-semibold mb-4 capitalize text-gray-700 dark:text-white/80">
+            {group.category}
+          </h3>
+          <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800 mb-4">
+            {group.skills.map((skill) => {
+              const idx = globalIndex++;
+              return (
+                <motion.li
+                  key={`skill-${idx}`}
+                  className="bg-white borderBlack max-sm:text-sm rounded-md md:rounded-xl px-3.5 py-1.5 md:px-5 md:py-3 dark:bg-white/10 dark:text-white/80"
+                  variants={fadeInAnimationVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{
+                    once: true,
+                  }}
+                  custom={idx}
+                >
+                  {skill}
+                </motion.li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
     </section>
   );
 };
 
 export default Skills;
+

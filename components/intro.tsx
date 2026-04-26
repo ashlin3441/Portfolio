@@ -24,62 +24,59 @@ const Intro = () => {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 max-w-[75rem] w-full sm:mb-0 scroll-mt-[100rem]"
     >
-      <div className="flex items-center justify-center">
-        <div className="relative">
+      <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 sm:gap-12">
+        {/* Left side: Profile image with fading edges */}
+        <div className="relative flex-shrink-0">
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               type: "tween",
-              duration: 0.2,
+              duration: 0.4,
+            }}
+            style={{
+              WebkitMaskImage:
+                "radial-gradient(ellipse 70% 70% at 50% 50%, black 50%, transparent 100%)",
+              maskImage:
+                "radial-gradient(ellipse 70% 70% at 50% 50%, black 50%, transparent 100%)",
             }}
           >
             <Image
               src="/profile.png"
               alt={`${OWNER_NAME.split(" ")[0]} portrait`}
-              width={192}
-              height={192}
+              width={420}
+              height={420}
               quality={95}
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="h-64 w-64 sm:h-80 sm:w-80 md:h-[22rem] md:w-[22rem] object-cover"
             />
           </motion.div>
+        </div>
 
-          <motion.span
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
-            }}
-            className="absolute text-2xl bottom-0 right-0"
+        {/* Right side: Text only */}
+        <div className="flex-1 text-center sm:text-left flex items-center justify-center">
+          <motion.h1
+            className="mb-0 mt-24 px-4 sm:px-0 text-xl font-medium !leading-[1.6] sm:text-2xl"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
           >
-            👋
-          </motion.span>
+            <b className="font-bold">Hi, I&apos;m {OWNER_NAME.split(" ")[0]},</b>{" "}
+            a <b className="font-bold">Full-Stack Developer</b> passionate about building{" "}
+            <b className="font-bold">modern, scalable, and user-friendly web applications.
+            </b> I  enjoy working across both frontend and backend development{" "}
+            <b className="font-bold">to create seamless digital experiences.</b>
+          </motion.h1>
         </div>
       </div>
 
-      <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <b className="font-bold">Hi, I&apos;m {OWNER_NAME.split(" ")[0]}.</b>{" "}
-        I&apos;m a <b className="font-bold">full-stack developer</b> with{" "}
-        <b className="font-bold">6+ months</b> of experience. I enjoy building{" "}
-        <i className="italic">sites and apps</i>. My focus is{" "}
-        <u className="underline">React</u>
-      </motion.h1>
-
+      {/* Buttons below, centered */}
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-2 justify-center items-center"
+        className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-2 justify-center items-center mt-6"
       >
         <div className="flex gap-2 flex-col sm:flex-row text-lg font-medium">
           <Link

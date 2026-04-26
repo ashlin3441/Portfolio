@@ -63,7 +63,7 @@ export const EXPERIENCES_DATA = [
     description:
       "Successfully Completed 4 month Internship as a Full Stack Developer at WeberFox Technologies, I have collaborated with various clients to create responsive and dynamic web applications based upon MERN Technology.",
     icon: React.createElement(FaReact),
-    date: "2023 - 2024",
+    date: "2025",
   },
   {
     title: "Completed Graduation",
@@ -71,6 +71,13 @@ export const EXPERIENCES_DATA = [
       "Completed Master of Computer Applications from Cochin University of Science and Technology.",
     icon: React.createElement(LuGraduationCap),
     date: "2025",
+  },
+  {
+    title: "Software Engineer at Cyncly",
+    description:
+      "A Software Engineer at Cyncly, contributing to building and maintaining scalable software solutions.",
+    icon: React.createElement(FaReact),
+    date: "2025 - Present",
   },
 ] as const;
 
@@ -80,7 +87,7 @@ export const PROJECTS_DATA = [
     title: "MindGraph",
     description:
       " a Fullstack Generative AI application to identify hidden patterns from unstructured data to a 3-dimensional knowledge graph.",
-    tags: ["React", "GraphRAG", "Cassandra", "Langchain", "Ollama","Llama 3.1", "Fast API"],
+    tags: ["React", "GraphRAG", "Cassandra", "Langchain", "Ollama", "Llama 3.1", "Fast API"],
     imageUrl: carhubImg,
   },
   {
@@ -89,29 +96,57 @@ export const PROJECTS_DATA = [
       " Developed an online marketplace for bioenergy solutions with integrated Chatbot functionality powered by IBM Watsonx.",
     tags: ["HTML", "CSS", "IBM WATSONX",],
     imageUrl: realtorImg,
-    
+
   },
-  
+
 ] as const;
 
 // Data for skills
 export const SKILLS_DATA = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "Materia-ui",
-  "Three.js",
-  "MySQL",
-  "MongoDB",
-  "Express",
-  "Redux",
-  "Python",
-  "Machine Learning",
-  "Deep Learning",
+  {
+    category: "Frontend Technologies",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Tailwind",
+      "Material-UI",
+      "Three.js",
+      "HTML",
+      "CSS",
+      "Redux",
+      "Zustand",
+    ],
+  },
+  {
+    category: "Backend Technologies",
+    skills: [
+      ".NET CORE",
+      "ASP.NET",
+      "Node.js",
+      "Express",
+      "REST API",
+      "Python",
+    ],
+  },
+  {
+    category: "Database",
+    skills: ["MySQL", "MongoDB"],
+  },
+  {
+    category: "AI",
+    skills: ["Machine Learning", "Deep Learning", "Google AI Studio"],
+  },
+  {
+    category: "Soft Skills",
+    skills: [
+      "Communication",
+      "Teamwork",
+      "Problem Solving",
+      "Time Management",
+      "Adaptability",
+    ],
+  },
 ] as const;
 
 // Owner name
